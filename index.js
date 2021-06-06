@@ -3,10 +3,13 @@ const sanctuary = {
 }
 
 const motherOwl = {
-  produceEgg: () => {
+  layEgg() {
     return {
       babyOwl: {
-        name: 'Owlet'
+        name: 'Owlet',
+        rename(newName) {
+          this.name = newName
+        }
       },
       hatch() {
         return this.babyOwl
@@ -15,7 +18,10 @@ const motherOwl = {
   }
 }
 
-console.log('We have got an', motherOwl.produceEgg().babyOwl.name)
-let egg = motherOwl.produceEgg()
+console.log('We have got an', motherOwl.layEgg().babyOwl.name)
+let egg = motherOwl.layEgg()
 let owlet = egg.hatch()
-console.log('hatched', owlet.name)
+owlet.rename('Pedro')
+console.log('owl is', owlet.name)
+egg = motherOwl.layEgg()
+console.log('new egg is called', egg.babyOwl.name)
