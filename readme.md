@@ -1,3 +1,3 @@
 # owl-sanctuary
 
-THis is going to be a simulation of an owl sanctuary.
+This is going to be a simulation of an owl sanctuary.
