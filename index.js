@@ -5,13 +5,17 @@ const sanctuary = {
 const motherOwl = {
   produceEgg: () => {
     return {
-      egg: {
-        babyOwl: {
-          name: 'Owlet'
-        }
+      babyOwl: {
+        name: 'Owlet'
+      },
+      hatch() {
+        return this.babyOwl
       }
     }
   }
 }
 
-console.log('We have got an', motherOwl.produceEgg().egg.babyOwl.name)
+console.log('We have got an', motherOwl.produceEgg().babyOwl.name)
+let egg = motherOwl.produceEgg()
+let owlet = egg.hatch()
+console.log('hatched', owlet.name)
